@@ -138,7 +138,7 @@ def random_str(length: int = 8) -> str:
     return "".join(secrets.choice(alphabet) for _ in range(length))
 
 
-async def generate_signature(
+def generate_signature(
     appid: str,
     secret_key: str,
     url: str,
@@ -199,7 +199,7 @@ async def generate_signature(
     return {"raw_str": sign_str, "signature": signature, "url": url_full}
 
 
-async def generate_signature_header(
+def generate_signature_header(
     appid: str,
     secret_key: str,
     url: str,
@@ -234,7 +234,7 @@ async def generate_signature_header(
     """
     timestamp = str(int(time.time()))
     nonce = random_str(8)
-    res = await generate_signature(
+    res = generate_signature(
         appid=appid,
         secret_key=secret_key,
         url=url,
@@ -260,7 +260,7 @@ async def generate_signature_header(
     }
 
 
-async def verify_signature(
+def verify_signature(
     appid: str,
     secret_key: str,
     url: str,
@@ -306,7 +306,7 @@ async def verify_signature(
                 "message": f"timestamp is invalid: {ts} - {now_ts}",
             }
 
-    sign_res = await generate_signature(
+    sign_res = generate_signature(
         appid=appid,
         secret_key=secret_key,
         url=url,

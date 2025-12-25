@@ -12,12 +12,12 @@ secret_key = "secret_key"
 
 
 async def gs():
-    sign = await generate_signature(appid, secret_key, "/path", "GET")
+    sign = generate_signature(appid, secret_key, "/path", "GET")
     print(sign)
 
 
 async def gsh():
-    sign_header = await generate_signature_header(
+    sign_header = generate_signature_header(
         appid, secret_key, "/path", "POST", {"a": "a", "b": 1}, {"_t": "1234567890"}
     )
     print(sign_header)
@@ -52,4 +52,4 @@ async def vsh():
 
 
 if __name__ == "__main__":
-    asyncio.run(vsh())
+    asyncio.run(gsh())
