@@ -402,7 +402,7 @@ async def verify_signature_header(
         return {"code": 4, "message": f"appid is invalid: {appid}"}
 
     # 验证签名（将 header 中解析出的签名值传入）
-    return await verify_signature(
+    return verify_signature(
         appid=appid,
         secret_key=secret_key,
         url=url,

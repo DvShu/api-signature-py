@@ -1,6 +1,6 @@
 [project]
 name = "api-signature"
-version = "0.0.3"
+version = "0.0.4"
 description = "用于生成和验证 HMAC-SHA256 请求签名的工具库"
 readme = "README.md"
 requires-python = ">=3.11"
